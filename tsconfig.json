@@ -20,9 +20,12 @@
       }
     ],
     "paths": {
+      "@api/*": ["./app/api/*"],
       "@types": ["./app/_types/index.ts"],
       "@hooks": ["./app/_utils/hooks/index.ts"],
       "@helpers": ["./app/_utils/helpers/index.ts"],
+      "@helpers/*": ["./app/_utils/helpers/*"],
+      "@actions/*": ["./app/_utils/actions/*"],
       "@components/core": ["./app/_components/core/index.ts"],
       "@components/form": ["./app/_components/form/index.ts"]
     }

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { getTest } from "./getTests";
 
-export default function ShowTest() {
+const ShowTest = () => {
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["hydrate-test"],
     queryFn: () => getTest(),
@@ -25,4 +25,6 @@ export default function ShowTest() {
       ) : null}
     </main>
   );
-}
+};
+
+export default ShowTest;

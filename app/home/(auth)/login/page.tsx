@@ -1,8 +1,5 @@
-import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, ClientOnly } from "@components/core";
+import { ClientOnly } from "@components/core";
 import LoginForm from "./LoginForm";
-import Link from "next/link";
 
 export default function Login() {
   return (
@@ -17,34 +14,6 @@ export default function Login() {
       <ClientOnly>
         <LoginForm />
       </ClientOnly>
-
-      <div className="flex flex-col gap-y-4">
-        <Button
-          group="normal"
-          variant="primary"
-          size="md"
-          width="full"
-          form="login"
-          type="submit"
-        >
-          Continue
-        </Button>
-
-        <div className="text-center text-sm font-medium text-secondary">
-          New to [NAME]?{" "}
-          <Link
-            href="/register"
-            className="ml-2 inline-flex cursor-pointer items-center gap-x-2 font-semibold text-accent-primary"
-          >
-            Sign up for free{" "}
-            <FontAwesomeIcon
-              icon={faCircleArrowRight}
-              aria-hidden="true"
-              className="text-sm"
-            />
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
