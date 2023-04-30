@@ -5,7 +5,7 @@ export default async function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
+  // const currentUser = await getCurrentUser();
   return (
     <div className="flex min-h-full">
       <div className="m-4 flex w-full max-w-[728px] flex-1 flex-col justify-center rounded-2xl bg-surface lg:flex-none ">
@@ -14,7 +14,7 @@ export default async function AuthLayout({
         </div>
       </div>
       <div className="text-secondary flex flex-1 items-center justify-center max-w-[300px] mx-auto">
-        {JSON.stringify(currentUser, null, 2)}
+        {/* {JSON.stringify(currentUser, null, 2)} */}
       </div>
     </div>
   );

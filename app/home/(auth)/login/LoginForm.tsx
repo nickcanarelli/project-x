@@ -7,6 +7,7 @@ import {
 import { FormWrapper, Password, Textfield } from "@components/form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@components/core";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
@@ -21,9 +22,14 @@ const redirectUrl =
 
 export default function LoginForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const searchParams = useSearchParams();
+
   const loginForm = useForm({
     schema,
   });
+
+  const callbackUrl = searchParams?.get("callbackUrl");
+  // const callbackUrl = decodeURI((router.query?.callbackUrl as string) ?? "/");
 
   const handleLogin: SubmitHandler<FieldValues> = (values) => {
     setIsSubmitting(true);
@@ -33,9 +39,8 @@ export default function LoginForm() {
       email,
       password,
       redirect: true,
-      callbackUrl: redirectUrl,
+      callbackUrl: callbackUrl ?? redirectUrl,
     }).then((callback) => {
-      console.log("callback", callback);
       setIsSubmitting(false);
       if (callback?.ok) {
         // success, do something with the response
