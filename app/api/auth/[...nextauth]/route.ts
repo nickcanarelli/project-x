@@ -94,7 +94,7 @@ export const authOptions: AuthOptions = {
       /* Step 2: update the session.user based on the token object */
       if (token && session.user) {
         session.user.role = token.role;
-        // session.user.stripeCustomerId = user.stripeCustomerId as string;
+        session.user.stripeCustomerId = user.stripeCustomerId as string;
         // session.user.stripeSubTier = stripeSubTier as string;
       }
       return session;

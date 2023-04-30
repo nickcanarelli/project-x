@@ -14,14 +14,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function RegisterForm() {
-  const { mutateAsync: register, isLoading: isRegistering } = useRegister();
+  const { mutate: register, isLoading: isRegistering } = useRegister();
   const registerForm = useForm({
     schema,
   });
 
-  const handleRegister: SubmitHandler<FieldValues> = async (values) => {
+  const handleRegister: SubmitHandler<FieldValues> = (values) => {
     const { email, password } = values;
-    await register({ email, password });
+    register({ email, password });
   };
 
   return (
